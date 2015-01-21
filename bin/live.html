@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>RtmpLiveEncoder</title>
+	<meta name="description" content="" />
+	
+	<script src="js/swfobject.js"></script>
+	<script>
+		var flashvars = {
+			streamer: 'rtmp://192.168.10.250/live',
+            file:'test',
+            onStopRecord:'stopRecord',
+            onError:'error',
+            publishType: 'live',
+            labelRecord: '开始',
+            labelStop: '停止'
+		};
+		var params = {
+			menu: "false",
+			scale: "noScale",
+			allowFullscreen: "true",
+			allowScriptAccess: "always",
+			bgcolor: "black",
+			wmode: "direct" // can cause issues with FP settings & webcam
+		};
+		var attributes = {
+			id:"RtmpLiveEncoder"
+		};
+		swfobject.embedSWF(
+			"RtmpLiveEncoder.swf", 
+			"altContent", "400", "400", "11.0.0", 
+			"expressInstall.swf", 
+			flashvars, params, attributes);
+	</script>
+	<style>
+		html, body { height:100%; overflow:hidden; }
+		body { margin:0; }
+	</style>
+</head>
+<body>
+	<h1>header</h1>	
+	<div id="altContent">
+		<h1>RtmpLiveEncoder</h1>
+		<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
+	</div>
+	<h1>foot</h1>
+</body>
+</html>
